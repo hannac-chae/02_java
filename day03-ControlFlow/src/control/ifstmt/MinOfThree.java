@@ -3,12 +3,10 @@ package control.ifstmt;
 import java.util.Scanner;
 
 /**
- * 세 정수를 입력받아서 
- * 그 중 가장 작은 정수를 판별하는 클래스이다.
- * -------------------------------------------
- * 가장 작은 정수를 판별할 때
- * 중첩 if ~ else 구문을 사용
- * -------------------------------------------
+ * 세 정수를 입력받아서 그 중 가장 작은 정수를 판별하는 클래스이다.
+ * ------------------------------------------- 가장 작은 정수를 판별할 때 중첩 if ~ else 구문을
+ * 사용 -------------------------------------------
+ * 
  * @author 304
  *
  */
@@ -20,21 +18,20 @@ public class MinOfThree {
 		int num2;
 		int num3;
 		int min;
-		
+
 		Scanner scan;
-		
+
 		// 2. 초기화
 		scan = new Scanner(System.in);
 		// 정수 입력 안내 prompt
-		System.out.println("세 정수를 입력하세요."
-				         + "(space bar로 분리)");
-		
+		System.out.println("세 정수를 입력하세요." + "(space bar로 분리)");
+
 		// 입력 값 저장
 		num1 = scan.nextInt();
 		num2 = scan.nextInt();
 		num3 = scan.nextInt();
-		
-		// 3. 사용 : 입력값의 대소비교 
+
+		// 3. 사용 : 입력값의 대소비교
 		if (num1 < num2) {
 			// num1 이 작을 때 진입
 			if (num1 < num3) {
@@ -43,7 +40,7 @@ public class MinOfThree {
 			} else {
 				// num3 작을 때 진입
 				min = num3;
-			}
+			} // ctrl + shift + f : 자동 줄맞춤.
 		} else {
 			// num2 작을 때 진입
 			if (num2 < num3) {
@@ -52,20 +49,10 @@ public class MinOfThree {
 				min = num3;
 			}
 		} // end else
-		
+
 		// 4. 출력
-		System.out.printf("입력된 세 값 %d, %d, %d 중"
-				        + "가장 작은 값 : %d%n"
-				         , num1, num2, num3, min);
-		
+		System.out.printf("입력된 세 값 %d, %d, %d 중" + "가장 작은 값 : %d%n", num1, num2, num3, min);
+
 	} // end main
 
 } // end class
-
-
-
-
-
-
-
-
