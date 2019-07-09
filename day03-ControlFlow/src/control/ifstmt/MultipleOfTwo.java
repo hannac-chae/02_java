@@ -44,6 +44,7 @@ public class MultipleOfTwo {
 		
 		System.out.println("===== (1) =====");
 		
+		// 입력값이 0인 경우 : "0은 배수 판별할 수 없습니다."
 		if (input % 2 == 0) { 
 			// 위의 () 안의 연산은 연산자 우선순위에 의해 
 			// input % 2 의 연산이 먼저 수행되고 난뒤
