@@ -43,10 +43,11 @@ public class MultipleOfTwo {
 		input = scan.nextInt();
 		
 		System.out.println("===== (1) =====");
+		
 		if (input % 2 == 0) { 
 			// 위의 () 안의 연산은 연산자 우선순위에 의해 
 			// input % 2 의 연산이 먼저 수행되고 난뒤
-			// 그 결과가 0과 같은지 == 연산산이 수행됩니다.
+			// 그 결과가 0과 같은지 == 연산이 수행됩니다.
 			result = "배수입니다.";
 		} else {
 			result = "배수가 아닙니다.";
