@@ -18,8 +18,28 @@ package control.loop;
 public class ForTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// 1.(1) continue 없이
+		for (int idx = 50; idx >= 0; idx--) {
+			if (idx % 2 != 0) 
+				;
+			else 
+				System.out.printf("%d%n", idx);
+		}
+		
+		System.out.println("=================================");
+		
+		// 1.(2) continue 사용
+		for (int idx = 50; idx >= 0; idx--) {
+			if (idx % 2 != 0) continue;
+			System.out.printf("%d%n", idx);
+		}
+		
+		System.out.println("=================================");		
+		// 2. 제곱표 출력
+		for (int square = 1; square <= 10; square++) {
+			System.out.printf("%2d x %2d = %3d%n", square, square, square * square);
+		}
+		
 	}
 
 }
