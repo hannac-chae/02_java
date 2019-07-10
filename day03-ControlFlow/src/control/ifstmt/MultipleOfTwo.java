@@ -45,28 +45,40 @@ public class MultipleOfTwo {
 		System.out.println("===== (1) =====");
 		
 		// 입력값이 0인 경우 : "0은 배수 판별할 수 없습니다."
-		if (input % 2 == 0) { 
-			// 위의 () 안의 연산은 연산자 우선순위에 의해 
-			// input % 2 의 연산이 먼저 수행되고 난뒤
-			// 그 결과가 0과 같은지 == 연산이 수행됩니다.
-			result = "배수입니다.";
+		if (input == 0) {
+			System.out.println("0은 배수 판별할 수 없습니다.");
 		} else {
-			result = "배수가 아닙니다.";
+			if (input % 2 == 0) { 
+				// 위의 () 안의 연산은 연산자 우선순위에 의해 
+				// input % 2 의 연산이 먼저 수행되고 난뒤
+				// 그 결과가 0과 같은지 == 연산이 수행됩니다.
+				result = "배수입니다.";
+			} else {
+				result = "배수가 아닙니다.";
+			}
+			System.out.printf("입력값 %d (은)는 2의 %s%n", input, result);
 		}
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 		
-		System.out.printf("입력값 %d (은)는 2의 %s%n", input, result);
 		
 		// (2) ---------------------------------------------
 		System.out.println("===== (2) =====");
-		mod = input % 2;
-		if (input % 2 == 0) { 
-			// 위의 () 안의 연산은 연산자 우선순위에 의해 
-			// input % 2 의 연산이 먼저 수행되고 난뒤
-			// 그 결과가 0과 같은지 == 연산산이 수행됩니다.
-			System.out.printf("입력값 %d (은)는 2의 %s%n", input, result);
+		
+		if (input == 0) {
+			System.out.println("0은 배수 판별할 수 없습니다.");
 		} else {
-			System.out.printf("입력값 %d (은)는 2의 %s%n", input, result);
-			System.out.printf("나머지가 %d 입니다.", mod);
+			mod = input % 2;			
+			if (input % 2 == 0) { 
+				// 위의 () 안의 연산은 연산자 우선순위에 의해 
+				// input % 2 의 연산이 먼저 수행되고 난뒤
+				// 그 결과가 0과 같은지 == 연산산이 수행됩니다.
+				result = "배수입니다.";
+				System.out.printf("입력값 %d (은)는 2의 %s%n", input, result);
+			} else {
+				result = "배수가 아닙니다.";
+				System.out.printf("입력값 %d (은)는 2의 %s%n", input, result);
+				System.out.printf("나머지가 %d 입니다.", mod);
+			}
 		}
 		
 		// 사용한 scan 객체 닫기
