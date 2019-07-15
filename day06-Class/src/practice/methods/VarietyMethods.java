@@ -78,8 +78,9 @@ public class VarietyMethods {
 	 * 구구단을 출력하는 메소드
 	 * printNineNineTableFromArray 를 정의하시오
 	 * 
-	 * @param stages : int[]
+	 * @param stages : int[] 
 	 */
+	
 	
 	/**
 	 * 키(cm), 몸무게(kg)을 매개변수로 입력받아
@@ -136,6 +137,23 @@ public class VarietyMethods {
 	 * @param numbers : int[] (int 배열)
 	 * @return double 배열의 각 원소의 평균
 	 */
+	public double avgOfArray(int[] numbers) {
+		// 1. 배열 원소의 총합
+		// (1) 총합 변수 선언, 초기화
+		int sum = 0;
+		// (2) 평균 변수 선언
+		double average;
+		// (3) 배열의 원소의 합을 구함 ==> foreach
+		for (int num: numbers) {
+			sum += num;
+		}
+		
+		// 2. 총합 / 원소의 갯수 ==> 평균
+		average = (double) sum / numbers.length;
+		
+		// 3. 평균을 리턴
+		return average;
+	}
 	
 	
 	/**
