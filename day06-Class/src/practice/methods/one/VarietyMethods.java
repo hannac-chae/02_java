@@ -1,4 +1,4 @@
-package practice.methods;
+package practice.methods.one;
 
 /**
  * 메소드 작성 연습 클래스
