@@ -8,7 +8,7 @@ package lecture;
  *    지우개(Eraser) 배열 erasers 를 선언
  *    
  * 2. markers 는 길이 4로 생성
- *    eraser 는 길이 2로 생성
+ *    erasers 는 길이 2로 생성
  *  
  *  markers[0] <== 에는 순서대로 
  *  ~ 
@@ -30,8 +30,62 @@ package lecture;
 public class LectureTestByArray {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// 1.
+		Marker[] markers;
+		Eraser[] erasers =
+			{new Eraser(3.5, 12.0, 5.5, 5, "검정색", "왼쪽")
+			, new Eraser(3.5, 12.0, 5.5, 3, "흰색"  , "오른쪽")};
+		
+		// 2.
+		markers = new Marker[4];
+//		erasers = new Eraser[2];
+		
+		markers[0] = new Marker(true, true, "빨강");
+		markers[1] = new Marker(true, false, "초록");
+		markers[2] = new Marker(false, false, "파랑");
+		markers[3] = new Marker(true, false, "검정");
+		
+//		erasers[0] = new Eraser(3.5, 12.0, 5.5, 5, "검정색", "왼쪽");
+//		erasers[1] = new Eraser(3.5, 12.0, 5.5, 3, "흰색"  , "오른쪽");
+		
+//		int[] numbers = new int[4];
+//		numbers[0] = 100;
+//		numbers[1] = 200;
+//		numbers[2] = 300;
+//		numbers[3] = 400;
+//		
+//		String[] names = new String[2];
+//		names[0] = "홍길동";
+//		names[1] = "허균";
+		
+		// 3.
+//		for (int num: numbers) {
+//			System.out.println(num);
+//		}
+		
+		for (Marker marker: markers) {
+			marker.use();
+		}
+		
+		for (Eraser eraser: erasers) {
+			eraser.erase();
+		}
+		
+		for (Eraser eraser: erasers) {
+			eraser.peel();
+		}
+		
+		for (Eraser eraser: erasers) {
+			eraser.print();
+		}
+		
+		for (Marker marker: markers) {
+			marker.print();
+		}
+		
 	}
 
 }
+
+
+
