@@ -1,4 +1,4 @@
-package eraser.one;
+package eraser.two;
 
 /**
  * 칠판 지우개를 만들고
