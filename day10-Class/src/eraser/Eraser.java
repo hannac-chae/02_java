@@ -45,10 +45,11 @@ package eraser;
 public class Eraser {
 	
 	// TODO 스태틱 변수 int 타입의 count 선언하고 0 초기화
-	
+	static int count = 0;
 	
 	// 1. 멤버변수 선언부
 	// TODO int 타입의 일련번호 저장할 멤버변수 serial 선언
+	int serial;
 	
 	/** 지우개 가로 길이 */
 	double width;
@@ -71,7 +72,7 @@ public class Eraser {
 		// TODO 멤버변수인 serial 을 
 		//      count 클래스변수를 증가시킨
 		//      값으로 저장
-		
+		this.serial = ++count;
 	}
 	
 	// (2) 매개변수가 있는 생성자 : 
