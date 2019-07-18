@@ -51,7 +51,7 @@ public class Oreo {
 	// 3. 메소드
 	public void print() {
 		System.out.printf("오레오 쿠키 상태 [크림의 종류:%s"
-				 + ", 반지름: %4.1f, 두께: %4.1f%n]"
+				 + ", 반지름: %4.1f, 두께: %4.1f] %n"
 				  , cream, radius, thickness);
 	}
 	
