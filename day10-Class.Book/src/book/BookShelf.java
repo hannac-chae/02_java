@@ -30,7 +30,7 @@ public class BookShelf {
 		// books 의 모든 책 내용을 새로 생성한 1칸 큰 배열에
 		// 앞쪽부터 복사
 		for (int idx = 0; idx < books.length; idx++) {
-			newBooks[idx] = books[idx];
+			newBooks[idx] = books[idx];			
 		}
 		
 		// 매개변수로 넘겨진 book 은 마지막 새로 생긴 칸에 저장

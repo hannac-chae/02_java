@@ -14,27 +14,17 @@ public class PointTest {
 		Point q;
 		Point o;
 		
-		Point[] points = new Point[2];
-		
 		// 2. 초기화
 		p = new Point(0, 0);
 		q = new Point(3, 4);
 		o = new NamedPoint("O", 0, 0);
 		
-		points[0] = new Point(0, 0);
-		points[1] = new Point(3, 4);
-		
 		// 3. 사용
-		// Point[] points 를 출력
-		System.out.println(points);
-		
 		// (1) 점 p 를 출력
 		System.out.println(p);
-		System.out.println(points[0]);
 		
 		// (2) 점 q 를 출력
 		System.out.println(q);
-		System.out.println(points[1]);
 		
 		// (3) 점 o 를 출력
 		System.out.println(o);
