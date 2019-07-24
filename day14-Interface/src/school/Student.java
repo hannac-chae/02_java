@@ -74,11 +74,4 @@ public class Student extends Person
 				          , getId(), major);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 }

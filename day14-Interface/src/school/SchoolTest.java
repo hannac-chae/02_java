@@ -33,7 +33,6 @@ public class SchoolTest {
 			System.out.println(attend.attend());
 		}
 		
-		
 		/////////////////////////////////////////
 		Lesson[] lessons = new Lesson[2];
 		lessons[0] = new Student("S01", "홍길동", 18, "도술");
