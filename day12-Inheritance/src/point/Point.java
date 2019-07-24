@@ -19,6 +19,10 @@ public class Point {
 		this.y = y;
 	}
 	
+	public Point() {
+		// TODO Auto-generated constructor stub
+	}
+
 	// 3. 메소드
 	// 접근자 / 수정자
 	public int getX() {

@@ -51,9 +51,9 @@ public class Product {
 	
 	// 1. 멤버 변수 선언부
 	/** 제품 코드 */
-	String prodCode;
+	String pcode;
 	/** 제품 명 */
-	String prodName;
+	String pname;
 	/** 제품 가격 */
 	int price;
 	/** 재고 수량 */
@@ -69,22 +69,22 @@ public class Product {
 	
 	/**
 	 * 제품 코드 필드만 초기화하는 생성자
-	 * @param prodCode
+	 * @param pcode
 	 */
-	Product(String prodCode) {
-		this.prodCode = prodCode;
+	Product(String pcode) {
+		this.pcode = pcode;
 	}
 	
 	/**
 	 * 모든 필드를 초기화하는 생성자
-	 * @param prodCode
-	 * @param prodName
+	 * @param pcode
+	 * @param pname
 	 * @param price
 	 * @param quantity
 	 */
-	Product(String prodCode, String prodName, int price, int quantity) {
-		this(prodCode);
-		this.prodName = prodName;
+	Product(String pcode, String pname, int price, int quantity) {
+		this(pcode);
+		this.pname = pname;
 		this.price = price;
 		this.quantity = quantity;
 	}
@@ -94,9 +94,7 @@ public class Product {
 	 * 제품 정보를 출력
 	 */
 	public void print() {
-		System.out.printf("제품 정보 [제품코드 : %s, 제품명 : %s"
-				         + ", 가격 %d: , 재고수량 : %d]%n"
-				         , prodCode, prodName, price, quantity);
+		System.out.println(this);
 	}
 	
 	/**
@@ -109,7 +107,7 @@ public class Product {
 		int price = this.price;
 		
 		if (percentage > 0) {
-			price = price - (int)(this.price * (percentage));
+			price = price - (int)(this.price * percentage);
 		}
 		
 		return price;
@@ -143,8 +141,8 @@ public class Product {
 	public String toString() {
 		String strProduct = String.format(
 				"제품 정보 [제품코드 : %s, 제품명 : %s"
-		                 + ", 가격 %,d: , 재고수량 : %d]%n"
-		         , prodCode, prodName, price, quantity);
+		                 + ", 가격 %,d: , 재고수량 : %d]"
+		         , pcode, pname, price, quantity);
 		return strProduct;
 	}
 	
