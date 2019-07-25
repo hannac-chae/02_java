@@ -1,11 +1,12 @@
 package clock;
 
-public class GalaxyGear4 extends SmartWatch {
+public class GalaxyGear4 extends GalaxyGear {
 
 	@Override
 	public void displayTime() {
-		System.out.println(getWatchName() 
-				+ "디스플레이에 시간이 표시됩니다.");
+		System.out.print("== 삼성 ==");
+		super.displayTime();
 	}
 
+	
 }

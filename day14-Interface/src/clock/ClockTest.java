@@ -18,7 +18,7 @@ public class ClockTest {
 		watches[0] = new GarminActive3();
 		watches[0].setWatchName("가민 액티브3");
 		
-		watches[1] = new GalaxyGear4();
+		watches[1] = new GalaxyGear4();//
 		watches[1].setWatchName("갤럭시 기어4");
 		
 		// 3. 사용
@@ -32,12 +32,12 @@ public class ClockTest {
 		myWatch = new GarminActive3(); 
 		
 		Clock yourWatch;
-		yourWatch = new GalaxyGear4();
+		yourWatch = new GalaxyGear();
 		
 		// 인터페이스타입 배열
 		Clock[] clocks = new Clock[2]; 
 		clocks[0] = new GarminActive3(); 
-		clocks[1] = new GalaxyGear4();
+		clocks[1] = new GalaxyGear();
 		
 		// clocks 배열에 있는 시계들로부터 displayTime 호출
 		for (Clock clock: clocks) {

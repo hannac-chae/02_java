@@ -12,7 +12,7 @@ public class NamedPoint extends Point {
 	private String name;
 	
 	// 2. 생성자 중복정의
-	public NamedPoint(int x, int y) {
+	public NamedPoint(int x, int y) {		
 		super(x, y);
 	}
 	
