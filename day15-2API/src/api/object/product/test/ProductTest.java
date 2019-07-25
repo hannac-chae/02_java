@@ -14,7 +14,8 @@ public class ProductTest {
 		
 		// 2. 초기화
 		msMouse = new Product("P001", "MS-아크 터치 마우스", 51330, 36);
-		ltMouse = new Product("P003", "로지텍코리아 G302 Daedalus Prime", 34900, 12);
+		ltMouse = new Product("P003", "로지텍코리아 G302 Daedalus Prime"
+				, 34900, 12);
 		
 		airFrier = new Product();
 		airFrier.setPcode("P002");
@@ -35,13 +36,16 @@ public class ProductTest {
 		
 		// (2) ms마우스의 가격을 변경
 		Product msMouse2 = new Product
-				("P001", "MS-아크 터치 마우스", 40000, 36);
+				(new String("P001"), "MS-아크 터치 마우스", 40000, 36);
 		
 		// 제품들이 들어있는 배열 products 에서
 		// msMouse2 의 pcode 와 같은 제품번호를 갖는 
 		// 인덱스의 원소를 msMouse2 로 변경
 		for (int idx = 0; idx < products.length; idx++) {
-			if (products[idx].getPcode() == msMouse2.getPcode()) {
+			// 객체의 내용비교를 하려면 .equals() 를 사용할 것
+//			if (products[idx].getPcode() == msMouse2.getPcode()) {
+//			if (products[idx].getPcode().equals(msMouse2.getPcode())) {
+			if (products[idx].equals(msMouse2)) {
 				products[idx] = msMouse2;
 			}
 		}
