@@ -15,16 +15,16 @@ package book;
 public class BookStore {
 
 	// 1. 멤버 변수 : 북매니저
-	BookManager manager;
+	private BookManager manager;
 	
 	// 2. 생성자 
 	// (1) 기본생성자 명시
-	BookStore() {
+	public BookStore() {
 		manager = new BookManager();
 	}
 	
 	// (2) 매개변수 생성자 중복 정의
-	BookStore(BookManager manager) {
+	public BookStore(BookManager manager) {
 		this.manager = manager;
 	}
 	

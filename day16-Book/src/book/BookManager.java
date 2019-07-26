@@ -27,16 +27,16 @@ package book;
 public class BookManager {
 
 	// 1. 멤버변수 선언부
-	BookShelf bookShelf;
+	private BookShelf bookShelf;
 	
 	// 2. 생성자 선언부
 	// (1) 기본 생성자 명시
-	BookManager() {
+	public BookManager() {
 		bookShelf = new BookShelf();
 	}
 	
 	// (2) 매개변수 생성자 작성
-	BookManager(BookShelf bookShelf) {
+	public BookManager(BookShelf bookShelf) {
 		this.bookShelf = bookShelf;
 	}
 	

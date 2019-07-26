@@ -16,17 +16,32 @@ package book;
 public class BookShelf {
 
 	// 멤버변수
-	Book[] books;
+	private Book[] books;
 	
-	BookShelf() {
+	public BookShelf() {
 		books = new Book[0];
 	}
 	
-	BookShelf(Book[] books) {
+	public BookShelf(Book[] books) {
 		this.books = books;
 	}
 	
 	// 책장에 책을 추가 : add : void : 매개변수로 Book 1개를 받는다.
+	/**
+	 * 1. 리턴을 int 타입으로 변경 추가 성공한 건수를 리턴
+	 * 
+	 * 2. 매개변수로 입력된 book 객체가 
+	 *    이미 목록에 존재하는지 여부를 
+	 * 
+	 *    isExists(book) 메소드를 사용하여 판단하고
+	 *    isExists(book) 의 결과가 false 일 때만
+	 *    현재의 추가로직이 작동하도록 변경
+	 * 
+	 * @param book
+	 * @return 0 : 이미 같인 seq 번호의 책이 있어서
+	 *             추가 실패
+	 *         1 : 새 책 정보 1건이 성공적으로 추가된 경우
+	 */
 	public void add(Book book) {
 		// 현재 books 보다 길이가 1큰 배열을 새로 만든다.
 		// newBooks
@@ -46,6 +61,14 @@ public class BookShelf {
 	}
 	
 	// 책장에서 책을 제거 : void : remove(Book book)
+	/**
+	 * 삭제하기 전에 목록에 book 객체가 존재하는지 먼저
+	 * isExists(book) 으로 판단
+	 * 
+	 * 결과가 true 일 때만 삭제로직 진행    1리턴
+	 * 결과가 false 이면 삭제로직 진행 없이 0리턴
+	 * @param book
+	 */
 	public void remove(Book book) {
 		// book 객체의 sequence 가 같으면 같은 책으로 판단해서
 		// 삭제
@@ -81,6 +104,15 @@ public class BookShelf {
 	}
 	
 	// 책 정보 수정 : void : set(Book book)
+	/**
+	 * 수정하기 전에 수정할 book 객체가
+	 * 목록에 이미 존재하는지 여부를
+	 * isExists(book) 수행 결과로 판단해서
+	 * 
+	 * true 이면 수정하고 1리턴
+	 * false 이면 수정진행하지 않고 0리턴
+	 * @param book
+	 */
 	public void set(Book book) {
 		// 수정할 book 이 books 배열 
 		// 몇번째 인덱스에 있는지 찾는다.
@@ -104,11 +136,26 @@ public class BookShelf {
 		return this.books;
 	}
 	
+	// 접근자
+	public Book[] getBooks() {
+		return books;
+	}
+	
+	// 수정자
+	public void setBooks(Book[] books) {
+		this.books = books;
+	}
+
+	// ---------------------------------------
 	/**
 	 * 매개변수 전달된 책 정보와
 	 * 일치하는 일련번호를 가진 책(책 배열: books 에 있는)을
 	 * 찾아서 배열에 안에 들어있는 책을 리턴
-	 * 
+	 * ---------------------------------------
+	 * 같은 책을 찾는 로직을 
+	 * sequence 값 직접 비교에서
+	 * book 객체 비교로 변경
+	 * ---------------------------------------
 	 * @param book
 	 * @return
 	 */
@@ -121,11 +168,13 @@ public class BookShelf {
 				break;
 			}
 		}
-		
 		return findBook;
 	}
 	
 	/**
+	 * 같은 책을 찾는 로직을 
+	 * sequence 값 직접 비교에서
+	 * book 객체 비교로 변경
 	 * 
 	 * @param book
 	 * @return
@@ -141,18 +190,22 @@ public class BookShelf {
 		}
 		return index;
 	}
-	
 
-	// 접근자
-	public Book[] getBooks() {
-		return books;
+	/**
+	 * 매개변수로 전달된 book(책)이 
+	 * 목록(배열)에 존재하는지 여부를 검색해서
+	 *  
+	 * 존재하면 true
+	 * 존재하지 않으면 false 
+	 * 를 리턴하는 private 메소드
+	 * 
+	 * @param book
+	 * @return true : 찾는 책이 목록에 존재, 
+	 *         false : 찾는 책이 목록에 없을 때
+	 */
+	private boolean isExists(Book book) {
+		
 	}
-	
-	// 수정자
-	public void setBooks(Book[] books) {
-		this.books = books;
-	}
-	
 }
 
 

@@ -59,35 +59,33 @@ package book;
  *
  */
 public class Book {
-	int sequence;
-	String isbn;
-	String title;
-	String author;
-	String company;
-	int totalPage;
-	int price;
-	int quantity;
+	private int sequence;
+	private String isbn;
+	private String title;
+	private String author;
+	private String company;
+	private int totalPage;
+	private int price;
+	private int quantity;
 	
-	Book() {
+	public Book() {
 		
 	}
 	
-	Book(int sequence) {
+	public Book(int sequence) {
 		this();
 		setSequence(sequence);
 	}
 	
-	Book(int sequence, String isbn) {
+	public Book(int sequence, String isbn) {
 		this(sequence);
 		setIsbn(isbn);
 	}
 	
-	Book(int sequence, String isbn, String title) {
+	public Book(int sequence, String isbn, String title) {
 		this(sequence, isbn);
 		this.title = title;
 	}
-	
-	
 	
 	public Book(int sequence, String isbn, String title, String author, String company, int totalPage, int price,
 			int quantity) {
@@ -171,16 +169,42 @@ public class Book {
 	}
 
 	public void print() {
-		String message = "책 정보[일련번호:%d, ISBN:%s"
-				             + ", 제목:%s, 저자:%s"
-				             + ", 출판사:%s, 페이지:%d"
-				             + ", 가격:%d, 재고:%d]%n";
-		
-		System.out.printf(message, sequence, isbn
-						, title, author, company
-						, totalPage, price, quantity);
-		
+		System.out.println(this);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + sequence;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		if (sequence != other.sequence)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		String message = "책 정보[일련번호:%d, ISBN:%s"
+	             + ", 제목:%s, 저자:%s"
+	             + ", 출판사:%s, 페이지:%d"
+	             + ", 가격:%d, 재고:%d]";
+		
+		return String.format(message, sequence, isbn, title, author, company, totalPage, price, quantity);
+	}
+	
+	
 	
 	
 }
