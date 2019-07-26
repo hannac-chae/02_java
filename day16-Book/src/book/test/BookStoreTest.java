@@ -62,10 +62,7 @@ public class BookStoreTest {
 		
 		// 3. 입고된 신간들 모두 확인
 		System.out.println(" 3. ===== 신간 확인 =====");
-		Book[] allBooks = kyobo.getAllBooks();
-		for (Book book: allBooks) {
-			book.print();
-		}
+		kyobo.getAllBooks();
 		
 		// 4. 채식주의자 가격할인:set
 		System.out.println(" 4. ===== 채식주의자 정보 변경 =====");
@@ -94,9 +91,7 @@ public class BookStoreTest {
 		
 		// 7. 폐기 확인을 위해 전체 목록 재 조회:getAllBooks
 		System.out.println(" 7. ===== 책은 도끼다 삭제 후 전체 목록 확인 =====");
-		for (Book book: kyobo.getAllBooks()) {
-			book.print();
-		}
+		kyobo.getAllBooks();
 	}
 
 }

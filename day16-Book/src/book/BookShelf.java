@@ -1,5 +1,7 @@
 package book;
 
+import java.util.Arrays;
+
 /**
  * Book 여러개가 꼽혀있어
  * 책 객체 여러개를 한번에 저장하고 
@@ -42,22 +44,26 @@ public class BookShelf {
 	 *             추가 실패
 	 *         1 : 새 책 정보 1건이 성공적으로 추가된 경우
 	 */
-	public void add(Book book) {
-		// 현재 books 보다 길이가 1큰 배열을 새로 만든다.
-		// newBooks
-		Book[] newBooks = new Book[books.length + 1];
+	public int add(Book book) {
+		// 1. 리턴 값 저장변수 선언, 초기화
+		int addCount = 0;
 		
-		// books 의 모든 책 내용을 새로 생성한 1칸 큰 배열에
-		// 앞쪽부터 복사
-		for (int idx = 0; idx < books.length; idx++) {
-			newBooks[idx] = books[idx];			
+		// 3. 로직전개
+		// 추가하려는 책이 존재하는지 판단
+		if (!isExists(book)) {
+		
+			// 이미 존재하는 배열 + 1크기로 복사
+			this.books = Arrays.copyOf(books, books.length + 1);
+			
+			// 1 늘어난 배열 마지막 자리에 새 book
+			// (매개변수로 넘어온 것) 저장
+			this.books[books.length - 1] = book;
+			
+			addCount++;
 		}
 		
-		// 매개변수로 넘겨진 book 은 마지막 새로 생긴 칸에 저장
-		newBooks[newBooks.length - 1] = book;
-		
-		// 이 클래스의 books 멤버변수에 새로만든 newBooks 저장
-		this.books = newBooks;
+		// 2. 리턴 값 저장 변수 리턴 구문 
+		return addCount;
 	}
 	
 	// 책장에서 책을 제거 : void : remove(Book book)
@@ -162,7 +168,7 @@ public class BookShelf {
 	private Book findBook(Book book) {
 		Book findBook = null;
 		for (int idx = 0; idx < books.length; idx++) {
-			if (books[idx].getSequence() == book.getSequence()) {
+			if (books[idx].equals(book)) {
 				// 같은 책 찾았다.
 				findBook = books[idx];
 				break;
@@ -182,7 +188,7 @@ public class BookShelf {
 	private int findBookIndex(Book book) {
 		int index = -1;
 		for (int idx = 0; idx < books.length; idx++) {
-			if (books[idx].getSequence() == book.getSequence()) {
+			if (books[idx].equals(book)) {
 				// 같은 책 찾았다.
 				index = idx;
 				break;
@@ -204,8 +210,24 @@ public class BookShelf {
 	 *         false : 찾는 책이 목록에 없을 때
 	 */
 	private boolean isExists(Book book) {
+		// 리턴 값이 있는 메소드의 경우
+		// 리턴 값을 저장할 변수를 선언, 초기화
+		boolean exists = false;
 		
+		for (Book findBook: books) {
+			if (findBook.equals(book)) {
+				// 메소드 로직 중간에서는
+				// 리턴 값을 저장하는 변수의 값을 결정만 진행
+				exists = true;
+				break;
+			}
+		}
+		// 리턴 구문은 메소드 종료 직전 
+		// 1번만 하는 습관 들이세요.
+		return exists;
 	}
+	
+	
 }
 
 
