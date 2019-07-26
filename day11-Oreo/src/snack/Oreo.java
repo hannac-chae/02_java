@@ -24,7 +24,8 @@ package snack;
 public class Oreo {
 
 	// 1. 멤버변수 선언
-	// TODO 쿠키 일려번호 int seq; 추가
+	// 쿠키 일려번호 int seq; 추가
+	int seq;
 	String cream;
 	double radius;
 	double thickness;
@@ -34,20 +35,24 @@ public class Oreo {
 		
 	}
 	
-	// TODO 생성자 seq 필드에 대해 중복정의
-	
-	Oreo(String cream) {
+	// 생성자 seq 필드에 대해 중복정의
+	Oreo(int seq) {
 		this();
+		this.seq = seq;
+	}
+	
+	Oreo(int seq, String cream) {
+		this(seq);
 		this.cream = cream;
 	}
 	
-	Oreo(String cream, double radius) {
-		this(cream);
+	Oreo(int seq, String cream, double radius) {
+		this(seq, cream);
 		this.radius = radius;
 	}
 	
-	Oreo(String cream, double radius, double thickness) {
-		this(cream, radius);
+	Oreo(int seq, String cream, double radius, double thickness) {
+		this(seq, cream, radius);
 		this.thickness = thickness;
 	}
 	
@@ -61,8 +66,38 @@ public class Oreo {
 	public void changeCream(String cream) {
 		this.cream = cream;
 	}
-	
-	// TODO 접근자, 수정자 추가
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
+	public String getCream() {
+		return cream;
+	}
+
+	public void setCream(String cream) {
+		this.cream = cream;
+	}
+
+	public double getRadius() {
+		return radius;
+	}
+
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+
+	public double getThickness() {
+		return thickness;
+	}
+
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
+	}
 	
 }
 

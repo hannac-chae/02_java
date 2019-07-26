@@ -22,7 +22,7 @@ public class OreoTest {
 	public static void main(String[] args) {
 		// 1. 선언, 2. 초기화
 		Oreo[] oreoBox = new Oreo[3];
-		
+		 
 		oreoBox[0] = new Oreo("초코");
 		oreoBox[1] = new Oreo("딸기");
 		oreoBox[2] = new Oreo("말차");
