@@ -79,8 +79,7 @@ public class BookStoreTest {
 		// (1) 해당 책의 시퀀스 번호만 알면 조회가능
 		//     시퀀스 번호만 들어있는 Book 객체를 생성
 		Book seqBook = new Book(1);
-		Book findBook = kyobo.get(seqBook);
-		findBook.print();
+		kyobo.get(seqBook);
 		
 		// 6. 책은 도끼다 폐기:remove
 		System.out.println(" 6. ===== 책은 도끼다 삭제 =====");
