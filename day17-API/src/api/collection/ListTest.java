@@ -98,6 +98,7 @@ public class ListTest {
 		// 인덱스를 직접 지정해서 추출 가능
 		// auto-unboxing
 		int two = (Integer) list.get(1);
+		System.out.println(two + 100);
 		
 		System.out.println("삭제 전 list 의 크기:" + list.size());
 		
