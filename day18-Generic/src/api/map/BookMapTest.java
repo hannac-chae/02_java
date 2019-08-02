@@ -1,5 +1,8 @@
 package api.map;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * key : Integer 
@@ -35,8 +38,29 @@ public class BookMapTest {
 
 		Book ax = new Book(5, "9788956055466", "책은 도끼다", "박웅현", "북하우스", 348, 14400, 2);
 		
+		// 1. Map<Integer, Book> 선언
+		Map<Integer, Book> books;
+		
+		// 2. 초기화 HashMap 으로 초기화
+		books = new HashMap<>();
+		
+		// 3. 사용
+		// (1) books 맵에 put(Integer, Book)
+		books.put(vegetarian.getSequence(), vegetarian);
+		books.put(littlePrince.getSequence(), littlePrince);
+		books.put(noDaap.getSequence(), noDaap);
+		books.put(dduk.getSequence(), dduk);
+		books.put(ax.getSequence(), ax);
+		
+		// (2) foreach 로 추출
+		//     key 셋을 먼저 얻기
+		Set<Integer> keys = books.keySet();
+		
+		for (int key: keys) {
+			System.out.println(books.get(key));
+		}
 		
 
 	}
 
-}
+}		
