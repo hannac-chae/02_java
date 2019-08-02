@@ -76,6 +76,11 @@ public class ListTest {
 		
 		System.out.println("== foreach 출력 ==");
 		for (Object object : list) {
+			
+			if (object instanceof Book) {
+				((Book) object).setTitle("채식주의자");
+			}
+			
 			System.out.println(object);
 		}
 		
