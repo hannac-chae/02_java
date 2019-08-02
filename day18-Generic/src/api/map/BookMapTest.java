@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static java.lang.Integer.valueOf;
+
 /**
  * key : Integer 
  * value : Book
@@ -46,11 +48,17 @@ public class BookMapTest {
 		
 		// 3. 사용
 		// (1) books 맵에 put(Integer, Book)
+		// auto-boxing
 		books.put(vegetarian.getSequence(), vegetarian);
 		books.put(littlePrince.getSequence(), littlePrince);
-		books.put(noDaap.getSequence(), noDaap);
-		books.put(dduk.getSequence(), dduk);
-		books.put(ax.getSequence(), ax);
+		
+		// new Integer() 로 직접 포장
+		books.put(new Integer(noDaap.getSequence()), noDaap);
+		
+		// Integer 객체로 포장하는 또 다른 방법
+		// static 메소드인 valueOf(int) 를 사용함, import static 사용
+		books.put(valueOf(dduk.getSequence()), dduk);
+		books.put(valueOf(ax.getSequence()), ax);
 		
 		// (2) foreach 로 추출
 		//     key 셋을 먼저 얻기
