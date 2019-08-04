@@ -83,9 +83,18 @@ public class MapBookShelf implements BookShelf {
 
 	@Override
 	public List<Book> getAllBooks() {
+		// Map 에는 값들만 취해서 Collection 에 Generic 이
+		// 적용된 형태로 만들어주는 valuse() 메소드가 있으므로
+		// 그 메소드를 적용하여 Map 의 값들만 추출
 		Collection<Book> collection = books.values();
+		
+		// Collection 인터페이스에는 컬렉션을 배열로 만들어주는
+		// toArray() 메소드가 존재
+		// 이 때, 매개변수로 만들 배열의 타입을 지정해서 넣어주면
+		// Object[] 이 아닌 특정 타입의 배열로 리턴받을 수 있음.
 		Book[] books = collection.toArray(new Book[] {});
 		
+		// 그렇게 만들어진 배열을 리스트로 변경
 		return Arrays.asList(books);
 	}
 	
@@ -93,7 +102,8 @@ public class MapBookShelf implements BookShelf {
 	/**
 	 * Map 인터페이스가 가지고 있는 
 	 * containsKey() 메소드를 사용하여
-	 * 키를 넘기며 그 키가 있으면 true, 아니면 false 를 리턴받아
+	 * 키를 넘기며 그 키가 있으면 true, 
+	 * 아니면 false 를 리턴받아
 	 * 키 존재 여부를 살피는 메소드
 	 * 
 	 * @param book
