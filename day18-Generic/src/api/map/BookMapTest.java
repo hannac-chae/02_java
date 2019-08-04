@@ -1,6 +1,7 @@
 package api.map;
 
 import static java.lang.Integer.valueOf;
+import static java.lang.Double.valueOf;
 
 import java.util.HashMap;
 import java.util.List;
@@ -69,10 +70,11 @@ public class BookMapTest {
 			System.out.println(books.get(key));
 		}
 		
+//		JSON Object notation
 
-		Map<Integer, Book>[] bookMaps = new HashMap[5];		
-		List<Map<Integer, Book>> booksList;
-		Set<Map<Integer, Map<Integer, List<Integer>>>> booksSet;
+//		Map<Integer, Book>[] bookMaps = new HashMap[5];		
+//		List<Map<Integer, Book>> booksList;
+//		Set<Map<Integer, Map<Integer, List<Integer>>>> booksSet;
 	}
 
 }		
