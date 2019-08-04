@@ -6,6 +6,9 @@ import java.util.Map;
 /**
  * Map 구조로 구현된 책장 클래스
  * 
+ * key   : Book.sequence 필드로 사용
+ * value : Book 인스턴스 자체
+ * 
  * @author 304
  *
  */
