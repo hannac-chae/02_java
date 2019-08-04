@@ -1,16 +1,11 @@
 package api.map;
 
-import java.util.HashMap;
-<<<<<<< Updated upstream
-import java.util.Map;
-import java.util.Set;
-
 import static java.lang.Integer.valueOf;
-=======
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
->>>>>>> Stashed changes
 
 /**
  * key : Integer 
