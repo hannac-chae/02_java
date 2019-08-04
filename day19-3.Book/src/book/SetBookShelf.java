@@ -1,6 +1,7 @@
 package book;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -85,13 +86,13 @@ public class SetBookShelf implements BookShelf {
 	public List<Book> getAllBooks() {
 		// Set<Book> ===> List<Book> 
 		// (1) API 메소드 사용하여 변환
-//		List<Object> bookList = 
-//				Arrays.asList(books.toArray());
+		List<Book> bookList = 
+				Arrays.asList(books.toArray(new Book[] {}));
 		
-		List<Book> bookList = new ArrayList<>();
-		for (Book book: books) {
-			bookList.add(book);
-		}
+//		List<Book> bookList = new ArrayList<>();
+//		for (Book book: books) {
+//			bookList.add(book);
+//		}
 		
 		return bookList;
 	}
