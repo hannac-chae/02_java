@@ -1,12 +1,13 @@
 package book.test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import book.Book;
 import book.BookManager;
 import book.BookShelf;
 import book.BookStore;
+import book.MapBookShelf;
 import book.SetBookShelf;
 
 /**
@@ -23,12 +24,14 @@ public class BookStoreTest {
 		// 1. 매니저에게 전달할 책장안에 들어갈 배열
 //		Book[] books = new Book[0];
 //		List<Book> books = new ArrayList<Book>();	
-		Set<Book> books = new HashSet<>();
+//		Set<Book> books = new HashSet<>();
+		Map<Integer, Book> books = new HashMap<>();
 		
 		// 2. 배열로 구성되는 책장을 만든다.
 //		BookShelf bookShelf = new ArrayBookShelf(books);
 //		BookShelf bookShelf = new ListBookShelf(books);
-		BookShelf bookShelf = new SetBookShelf(books);
+//		BookShelf bookShelf = new SetBookShelf(books);
+		BookShelf bookShelf = new MapBookShelf(books);
 		
 		// 3. 배열로 구성된 책장을 관리할 매니저를 고용
 		BookManager manager = new BookManager(bookShelf);
