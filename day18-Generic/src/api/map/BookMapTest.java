@@ -1,10 +1,16 @@
 package api.map;
 
 import java.util.HashMap;
+<<<<<<< Updated upstream
 import java.util.Map;
 import java.util.Set;
 
 import static java.lang.Integer.valueOf;
+=======
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+>>>>>>> Stashed changes
 
 /**
  * key : Integer 
@@ -69,6 +75,9 @@ public class BookMapTest {
 		}
 		
 
+		Map<Integer, Book>[] bookMaps = new HashMap[5];		
+		List<Map<Integer, Book>> booksList;
+		Set<Map<Integer, Map<Integer, List<Integer>>>> booksSet;
 	}
 
 }		
