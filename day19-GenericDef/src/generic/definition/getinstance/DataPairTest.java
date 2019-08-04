@@ -26,11 +26,14 @@ public class DataPairTest {
 		
 		// 3. 사용
 		System.out.printf("%d:%s%n"
-				, isDataPair.getKey(), isDataPair.getValue());
+				, isDataPair.getPairKey()
+				, isDataPair.getPairValue(isDataPair.getPairKey()));
 		System.out.printf("%s:%s%n"
-				, ssDataPair.getKey(), ssDataPair.getValue());
+				, ssDataPair.getPairKey()
+				, ssDataPair.getPairValue(ssDataPair.getPairKey()));
 		System.out.printf("%d:%s%n"
-				, ibDataPair.getKey(), ibDataPair.getValue());
+				, ibDataPair.getPairKey()
+				, ibDataPair.getPairValue(ibDataPair.getPairKey()));
 		
 		
 		

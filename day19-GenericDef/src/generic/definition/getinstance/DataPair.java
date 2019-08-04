@@ -45,24 +45,15 @@ public class DataPair<K, V> {
 	}
 	
 	// 3. 메소드 선언부
-	// (1) 접근자 수정자
-	public K getKey() {
+	public K getPairKey() {
 		return this.key;
 	}
 	
-	public void setKey(K key) {
-		this.key = key;
-	}
-	
-	public V getValue() {
+	public V getPairValue(K key) {
 		return this.value;
 	}
 	
-	public void setValue(V value) {
-		this.value = value;
-	}
-	
-	// (2) 이 클래스 타입의 인스턴스를 리턴하는
+	// 이 클래스 타입의 인스턴스를 리턴하는
 	//     static 메소드 getInstance() 작성
 	public static <K, V> DataPair<K, V> getInstance(K key, V value) {
 		// getInstance() 메소드 내부에서
