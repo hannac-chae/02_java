@@ -1,9 +1,13 @@
 package book.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import book.Book;
 import book.BookManager;
-import book.ArrayBookShelf;
+import book.BookShelf;
 import book.BookStore;
+import book.ListBookShelf;
 
 /**
  * 서점에서 할 수 있는 여러 기능들
@@ -17,10 +21,12 @@ public class BookStoreTest {
 	public static void main(String[] args) {
 		
 		// 1. 매니저에게 전달할 책장안에 들어갈 배열
-		Book[] books = new Book[0];
+//		Book[] books = new Book[0];
+		List<Book> books = new ArrayList<Book>();				
 		
 		// 2. 배열로 구성되는 책장을 만든다.
-		ArrayBookShelf bookShelf = new ArrayBookShelf(books);
+//		BookShelf bookShelf = new ArrayBookShelf(books);
+		BookShelf bookShelf = new ListBookShelf(books);
 		
 		// 3. 배열로 구성된 책장을 관리할 매니저를 고용
 		BookManager manager = new BookManager(bookShelf);
