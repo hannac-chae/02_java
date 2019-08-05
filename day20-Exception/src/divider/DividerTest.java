@@ -29,8 +29,19 @@ public class DividerTest {
 		input = scan.nextInt();
 		
 		// 3. 사용
-		int result = div.divide(input);
-		System.out.printf("나눗셈 성공:%d%n", result);
+		int result;
+		
+		try {
+			result = div.divide(input);
+			System.out.printf("나눗셈 성공:%d%n", result);
+			
+		} catch (DivideZeroException e) {
+			System.err.printf("나눗셈 실패:%s%n", e);
+			e.printStackTrace();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println("=프로그램 종료=");
 		/* -------------------------
@@ -43,7 +54,16 @@ public class DividerTest {
 				at divider.Divider.divide(Divider.java:30)
 				at divider.DividerTest.main(DividerTest.java:32)
          * 프로그램 종료 메시지가 출력되지 않음
-         * ==> 예외가 처리되지 못하고 프로그램 중단됨 알 수 있음.	
+         * ==> 예외가 처리되지 못하고 프로그램 중단됨 알 수 있음.
+         * 
+         * ==================================
+         * 0
+		   나눗셈 실패:0으로 나누려는 시도가 있습니다.
+		   0으로 나누려는 시도가 있습니다.
+				at divider.Divider.divide(Divider.java:33)
+				at divider.DividerTest.main(DividerTest.java:35)
+		   =프로그램 종료=
+	
 		 * ------------------------- */
 	}
 
