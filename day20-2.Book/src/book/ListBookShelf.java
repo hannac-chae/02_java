@@ -3,6 +3,9 @@ package book;
 import java.util.ArrayList;
 import java.util.List;
 
+import book.exception.DuplicateException;
+import book.exception.NotFoundException;
+
 public class ListBookShelf implements BookShelf {
 
 	// 1. 멤버변수 
@@ -21,19 +24,22 @@ public class ListBookShelf implements BookShelf {
 	}
 	
 	@Override
-	public int add(Book book) {
+	public int add(Book book) throws DuplicateException {
 		int addCnt = 0;
 		
 		if (!isExists(book)) {
 			books.add(book);
 			addCnt++;
+			
+		} else {
+			throw new DuplicateException("add", book);
 		}
 			
 		return addCnt;
 	}
 
 	@Override
-	public int set(Book book) {
+	public int set(Book book) throws NotFoundException {
 		int setCnt = 0;
 		
 		if (isExists(book)) {
@@ -42,29 +48,38 @@ public class ListBookShelf implements BookShelf {
 				books.set(index, book);
 				setCnt++;
 			}
+			
+		} else {
+			throw new NotFoundException("set", book);
 		}
 		return setCnt;
 	}
 
 	@Override
-	public int remove(Book book) {
+	public int remove(Book book) throws NotFoundException {
 		int rmCnt = 0;
 		
 		if (isExists(book)) {
 			if (books.remove(book)) {
 				rmCnt++;
 			}
+			
+		} else {
+			throw new NotFoundException("remove", book);
 		}
 		return rmCnt;
 	}
 
 	@Override
-	public Book get(Book book) {
+	public Book get(Book book) throws NotFoundException {
 		Book findBook = null;
 		
 		int index = findBookIndex(book);
 		if (index > -1) {
 			findBook = books.get(index);
+			
+		} else {
+			throw new NotFoundException("get", book);
 		}
 		
 		return findBook;
