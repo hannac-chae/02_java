@@ -3,6 +3,8 @@ package book.dao;
 import java.util.Arrays;
 import java.util.List;
 
+import book.exception.DuplicateException;
+import book.exception.NotFoundException;
 import book.vo.Book;
 
 /**
@@ -46,8 +48,9 @@ public class ArrayBookShelf implements BookShelf {
 	 * @return 0 : 이미 같인 seq 번호의 책이 있어서
 	 *             추가 실패
 	 *         1 : 새 책 정보 1건이 성공적으로 추가된 경우
+	 * @throws DuplicateException 
 	 */
-	public int add(Book book) {
+	public int add(Book book) throws DuplicateException {
 		// 1. 리턴 값 저장변수 선언, 초기화
 		int addCount = 0;
 		
@@ -63,6 +66,8 @@ public class ArrayBookShelf implements BookShelf {
 			this.books[books.length - 1] = book;
 			
 			addCount++;
+		} else {
+			throw new DuplicateException("add", book);
 		}
 		
 		// 2. 리턴 값 저장 변수 리턴 구문 
@@ -77,8 +82,9 @@ public class ArrayBookShelf implements BookShelf {
 	 * 결과가 true 일 때만 삭제로직 진행    1리턴
 	 * 결과가 false 이면 삭제로직 진행 없이 0리턴
 	 * @param book
+	 * @throws NotFoundException 
 	 */
-	public int remove(Book book) {
+	public int remove(Book book) throws NotFoundException {
 		// book 객체의 sequence 가 같으면 같은 책으로 판단해서
 		// 삭제
 		// 폐기 안하고 남는 책을 유지할 새 배열
@@ -112,8 +118,12 @@ public class ArrayBookShelf implements BookShelf {
 				//    this.book 에 새로 저장
 				this.books = newBooks;
 				rmCnt++;
-			} // end outer if
-		}
+				
+			} else {
+				throw new NotFoundException("remove", book);				
+			}
+			  
+		} 
 		
 		return rmCnt;
 	}
@@ -127,24 +137,32 @@ public class ArrayBookShelf implements BookShelf {
 	 * true 이면 수정하고 1리턴
 	 * false 이면 수정진행하지 않고 0리턴
 	 * @param book
+	 * @throws NotFoundException 
 	 */
-	public int set(Book book) {
+	public int set(Book book) throws NotFoundException {
 		int setCnt = 0;
 		if (isExists(book)) {
 			// 수정할 book 이 books 배열 
 			// 몇번째 인덱스에 있는지 찾는다.
 			books[findBookIndex(book)] = book;
 			setCnt++;
+			
+		} else {
+			throw new NotFoundException("set", book);
 		}
 		return setCnt;
 	}
 	
 	// 책 한권 얻기 : Book : get(Book book)
-	public Book get(Book book) {
+	public Book get(Book book) throws NotFoundException {
 		// 입력된 book의 sequence 값과
 		// 내부 배열에 저장된 책들중 일치하는 sequence 를 가진
 		// 책 1권의 정보를 리턴
-		return findBook(book);
+		Book found = findBook(book);
+		if (found == null)
+			throw new NotFoundException("get", book);
+		
+		return found;
 	}
 	
 	// 전체 책 목록을 얻기 : getAllBooks()
