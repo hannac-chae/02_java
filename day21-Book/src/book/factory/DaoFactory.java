@@ -39,7 +39,7 @@ public class DaoFactory {
 			
 		} else if ("map".equals(type)) {
 			bookShelf = new MapBookShelf(new HashMap<Integer, Book>());
-					
+			
 		} else {
 			bookShelf = new ArrayBookShelf(new Book[]{});
 		}
