@@ -1,4 +1,4 @@
-package jdbc;
+package jdbc.stmt;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import oracle.jdbc.OracleDriver;
+import java.util.Scanner;
 
 /**
  * SCOTT 계정의 EMP 테이블의 내용을 조회하여
@@ -23,7 +22,7 @@ import oracle.jdbc.OracleDriver;
  * @author 304
  *
  */
-public class DriverLoadType5 {
+public class StatementTest {
 
 	// DB 커넥션 정보를 static 상수로 선언
 	private static final String URL = 
@@ -55,11 +54,20 @@ public class DriverLoadType5 {
 					DriverManager.getConnection(MYSQL_URL, USER, PASSWORD);
 //					DriverManager.getConnection(URL, USER, PASSWORD);
 			// 3. 쿼리 준비
+			System.out.println("조회할 대상의 JOB 을 입력하세요.");
+			System.out.println("CLERK, SALESMAN, MANAGER, ANALYST, PRESIDENT 중 선택");
+			String jobSales = new Scanner(System.in).nextLine();
+			
+			System.out.println("조회할 급여 값을 정수로 입력하세요.");
+			int salInput = new Scanner(System.in).nextInt();
+			
 			String sql = "SELECT e.empno"
 					+    "     , e.ename"
 					+    "     , e.job"
 					+    "     , e.sal"
 					+    "  FROM emp e"
+					+    " WHERE e.job = '" + jobSales + "'"
+					+    "   AND e.sal > " + salInput 
 					+    " ORDER BY e.ename";
 			
 			stmt = connection.createStatement();
