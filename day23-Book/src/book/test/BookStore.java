@@ -63,6 +63,14 @@ public class BookStore {
 		manager.getAllBooks();
 	}
 	
+	public void getBooksByTitle(String title) {
+		manager.getBooksByTitle(title);
+	}
+	
+	public void getBooksByPrice(int min, int max) {
+		manager.getBooksByPrice(min, max);
+	}
+	
 }
 
 

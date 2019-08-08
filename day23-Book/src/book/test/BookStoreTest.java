@@ -112,6 +112,12 @@ public class BookStoreTest {
 		// 7. 폐기 확인을 위해 전체 목록 재 조회:getAllBooks
 		System.out.println(" 7. ===== 책은 도끼다 삭제 후 전체 목록 확인 =====");
 		kyobo.getAllBooks();
+		
+		// 8. 제목 검색
+		kyobo.getBooksByTitle("어");
+		
+		// 9. 가격 검색
+		kyobo.getBooksByPrice(10000, 11000);
 	}
 
 }

@@ -202,6 +202,21 @@ public class BookManager {
 			response.response(bookShelf.getAllBooks());
 	}
 	
+	
+	public void getBooksByTitle(String title) {
+		response = getResp("list");
+		
+		if (response != null)
+			response.response(bookShelf.getBooksByTitle(title));
+	}
+	
+	public void getBooksByPrice(int min, int max) {
+		response = getResp("list");
+		
+		if (response != null)
+			response.response(bookShelf.getBooksByPrice(min, max));
+	}
+	
 }
 
 
