@@ -61,3 +61,12 @@ ISBN      : isbn      : String
 -- DELETE 구문
 -- SEQUENCE 컬럼으로 걸어서 1번 책 정보 삭제
 
+
+
+-- 책 제목 유사검색 쿼리 작성 = LIKE
+
+
+-- 책 가격 범위검색 쿼리 작성 = BETWEEN ~ AND ~
+
+
+

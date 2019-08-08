@@ -52,5 +52,24 @@ public interface BookShelf {
 	 * @return
 	 */
 	public abstract List<Book> getAllBooks();
+	
+	/**
+	 * 제목에 검색어 title 이 포함된 책의 목록을 조회하여 리턴
+	 * @param title
+	 * @return 책 목록
+	 */
+	public abstract List<Book> getBooksByTitle(String title);
+	
+	/**
+	 * 책의 가격이 min ~ max (포함) 
+	 * 사이인 책 목록을 조회하여 리턴
+	 * @param min
+	 * @param max
+	 * @return
+	 */
+	public abstract List<Book> getBooksByPrice(int min, int max);
 
 }
+
+
+

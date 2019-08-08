@@ -121,6 +121,41 @@ public class JdbcBookShelf implements BookShelf {
 		return exists;
 	}
 
+	@Override
+	public List<Book> getBooksByTitle(String title) {
+		// SELECT title 포함된 
+		// 책목록 조회 필요 객체 선언
+		
+		// 2. 커넥션 맺기
+		
+		// 3. 쿼리 준비
+		
+		// 4. 쿼리 실행
+		
+		// 5. 결과 처리
+		
+		// 6. 자원 해제
+		return null;
+	}
+
+	@Override
+	public List<Book> getBooksByPrice(int min, int max) {
+		// SELECT price min ~ max 사이인 
+		// min, max 값 포함 책목록 조회 
+		// 필요 객체 선언
+		
+		// 2. 커넥션 맺기
+		
+		// 3. 쿼리 준비
+		
+		// 4. 쿼리 실행
+		
+		// 5. 결과 처리
+		
+		// 6. 자원 해제
+		return null;
+	}
+
 }
 
 
