@@ -15,11 +15,12 @@ import java.util.List;
 
 public class MemberSelect {
 
-	public static void main(String[] args) {
+	public List<Member> getAllMembers() {
 		// 필요한 변수들 먼저 선언
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet result = null;
+		List<Member> members = new ArrayList<>();
 		
 		try {
 			// 1. 드라이버 로드
@@ -50,7 +51,6 @@ public class MemberSelect {
 			// Member 클래스 인스턴스 포장 후
 			// 여러 건을 List 에 담아
 			// 생성된 리스트를 출력
-			List<Member> members = new ArrayList<>();
 			
 			while (result.next()) {
 				// (1) 조회된 행의 각 컬럼을 변수로 받는다.
@@ -78,12 +78,6 @@ public class MemberSelect {
 				members.add(member);
 			}
 			
-			// (4) 반복처리에 의해 모든 회원 정보가 담긴
-			//     members 리스트를 출력
-			for (Member member: members) {
-				System.out.println(member);
-			}
-			
 		} catch (SQLException e) {
 			System.err.println("SQL 구문 오류! " + e.getMessage());
 			e.printStackTrace();
@@ -106,7 +100,9 @@ public class MemberSelect {
 				e.printStackTrace();
 			}
 		}
+		
+		return members;
 
-	}
+	} // end method getAllMembers
 
 }
