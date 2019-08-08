@@ -1,6 +1,6 @@
 package jdbc.pstmt.dml;
 
-import static jdbc.ConnectionInfo.DIRVER;
+import static jdbc.ConnectionInfo.DRIVER;
 import static jdbc.ConnectionInfo.PASSWORD;
 import static jdbc.ConnectionInfo.URL;
 import static jdbc.ConnectionInfo.USER;
@@ -38,7 +38,7 @@ public class EmpUpdate {
 		
 		try {
 			// 1. 드라이버 로드
-			Class.forName(DIRVER);
+			Class.forName(DRIVER);
 			
 			// 2. 커넥션 맺기
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);

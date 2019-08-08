@@ -1,35 +1,13 @@
 package jdbc.pstmt.dml;
 
-import static jdbc.ConnectionInfo.DRIVER;
-import static jdbc.ConnectionInfo.PASSWORD;
-import static jdbc.ConnectionInfo.URL;
-import static jdbc.ConnectionInfo.USER;
+import static jdbc.ConnectionInfo.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * EMP 테이블에 
- * 1행을 삭제하는 DELETE 쿼리를 
- * JDBC를 통해 처리하는 클래스
- * ------------------------------------------
- * 1. 드라이버로드(5번째 Class.forName(..))
- * 2. 커넥션 맺기(DriverManager 클래스 사용)
- * 3. 쿼리 준비(PreparedStatement 사용)
- * 4. 쿼리 실행(executeQuery(), executeUpdate())
- * 5. 결과 처리(while, 리턴 값에 따라 적절한 처리)
- * 6. 자원 해제(오픈한 역순)
- * 
- * 모든 과정에서 SQLException 처리
- * ------------------------------------------
- * 
- * 
- * @author 304
- *
- */
-public class EmpDelete {
+public class MemberInsert {
 
 	public static void main(String[] args) {
 		// 필요한 변수들 먼저 선언
@@ -44,22 +22,23 @@ public class EmpDelete {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			
 			// 3. 쿼리 준비
-			String sql = "DELETE EMP e" 
- 			           + " WHERE e.empno = ?";
+			String sql = "INSERT INTO MEMBER(MEMBER_ID, MEMBER_NAME)"
+					+ "   VALUES (?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
-			// ? 매핑 (임꺽정 : 8888 삭제)
-			pstmt.setInt(1, 8888);
+			// ? 매핑
+			pstmt.setString(1, "M010");
+			pstmt.setString(2, "홍길동");
 			
 			// 4. 쿼리 실행 : ? 가 사전에 모두 매핑된 
 			//    pstmt 객체를 통해서 쿼리 실행
-			int rmCnt = pstmt.executeUpdate();
+			int addCnt = pstmt.executeUpdate();
 			
 			// 5. DML 결과 처리 : executeUpdate() 를 통해서
 			//    몇 건의 데이터가 처리되었는지를 나타내는
 			//    정수 리턴값으로 처리 가능
-			if (rmCnt > 0) {
-				System.out.printf("%d 행이 삭제되었습니다.%n", rmCnt);
+			if (addCnt > 0) {
+				System.out.printf("%d 행이 입력되었습니다.%n", addCnt);
 			}
 			
 		} catch (SQLException e) {
@@ -83,12 +62,8 @@ public class EmpDelete {
 				System.err.println("자원 해제 오류! " + e.getMessage());
 				e.printStackTrace();
 			}
-			
-		} // try ~ catch ~ finally 
-		
-	} // end main
-	
-} // end class
+		}
 
+	}
 
-
+}
