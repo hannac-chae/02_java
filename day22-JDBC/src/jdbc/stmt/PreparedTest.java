@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 /**
  * SCOTT 계정의 EMP 테이블의 내용을 조회하여
@@ -70,8 +71,12 @@ public class PreparedTest {
 			// 아래의 매핑 구문이 추가됨.
 			// 문자, 숫자 데이터에 상관 없이
 			// 데이터의 앞 뒤로 ' 처리가 자동으로 이루어짐.
-			pstmt.setString(1, "SALESMAN");
-			pstmt.setInt(2, 1500);
+			System.out.println("조회할 대상의 JOB 을 입력하세요.");
+			System.out.println("CLERK, SALESMAN, MANAGER, ANALYST, PRESIDENT 중 선택");
+			pstmt.setString(1, new Scanner(System.in).nextLine());
+			
+			System.out.println("조회할 급여 값을 정수로 입력하세요.");
+			pstmt.setInt(2, new Scanner(System.in).nextInt());
 			
 			// 4. 쿼리 실행   
 			// ?가 매핑된 정적인 쿼리를 바로 실행함
