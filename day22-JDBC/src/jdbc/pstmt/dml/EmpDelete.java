@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 /**
  * EMP 테이블에 
- * 1행을 수정하는 Update 쿼리를 
+ * 1행을 삭제하는 DELETE 쿼리를 
  * JDBC를 통해 처리하는 클래스
  * ------------------------------------------
  * 1. 드라이버로드(5번째 Class.forName(..))
@@ -29,7 +29,7 @@ import java.sql.SQLException;
  * @author 304
  *
  */
-public class EmpUpdate {
+public class EmpDelete {
 
 	public static void main(String[] args) {
 		// 필요한 변수들 먼저 선언
@@ -44,29 +44,22 @@ public class EmpUpdate {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			
 			// 3. 쿼리 준비
-			String sql = "UPDATE EMP e    "
-			           + "   SET e.job = ?" 
-					   + "     , e.hiredate = sysdate"
-			           + "     , e.sal = ?"
-					   + "     , e.deptno = ?"
-			           + " WHERE e.empno = ? ";
+			String sql = "DELETE EMP e" 
+ 			           + " WHERE e.empno = ?";
 			pstmt = conn.prepareStatement(sql);
 			
-			// ? 매핑 (홍길동 : 9999 수정)
-			pstmt.setString(1, "SALESMAN");
-			pstmt.setInt(2, 2000);
-			pstmt.setInt(3, 30);
-			pstmt.setInt(4, 9999);
+			// ? 매핑 (임꺽정 : 8888 삭제)
+			pstmt.setInt(1, 8888);
 			
 			// 4. 쿼리 실행 : ? 가 사전에 모두 매핑된 
 			//    pstmt 객체를 통해서 쿼리 실행
-			int setCnt = pstmt.executeUpdate();
+			int rmCnt = pstmt.executeUpdate();
 			
 			// 5. DML 결과 처리 : executeUpdate() 를 통해서
 			//    몇 건의 데이터가 처리되었는지를 나타내는
 			//    정수 리턴값으로 처리 가능
-			if (setCnt > 0) {
-				System.out.printf("%d 행이 수정되었습니다.%n", setCnt);
+			if (rmCnt > 0) {
+				System.out.printf("%d 행이 삭제되었습니다.%n", rmCnt);
 			}
 			
 		} catch (SQLException e) {
