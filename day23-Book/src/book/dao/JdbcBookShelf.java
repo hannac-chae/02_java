@@ -52,7 +52,7 @@ public class JdbcBookShelf implements BookShelf {
 
 			// 3. 쿼리 준비
 			String sql = "INSERT INTO BOOK b (b.sequence, b.isbn, b.title, b.author, b.company, b.total_page, b.price, b.quantity) " 
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+					   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, book.getSequence());
