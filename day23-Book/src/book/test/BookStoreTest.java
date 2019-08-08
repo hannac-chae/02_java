@@ -48,7 +48,7 @@ public class BookStoreTest {
 		
 		// --------------------------------------------
 		// 1. 서점에 신간이 도착
-		System.out.println(" 1. ===== 신간 도착 책 생성 =====");
+		System.out.println("\n 1. ===== 신간 도착 책 생성 =====");
 		Book vegetarian = 
 				buildBook(1, "9788936433598", "채식주의자"
 						  , "한강", "창비", 247, 10800, 10);
@@ -71,7 +71,7 @@ public class BookStoreTest {
 		
 		
 		// 2. 서점에 도착한 신간 입고
-		System.out.println(" 2. ===== 신간 입고 =====");
+		System.out.println("\n 2. ===== 신간 입고 =====");
 		kyobo.add(vegetarian);
 		kyobo.add(littlePrince);
 		kyobo.add(noDaap);
@@ -82,42 +82,61 @@ public class BookStoreTest {
 		kyobo.add(ax);
 		
 		// 3. 입고된 신간들 모두 확인
-		System.out.println(" 3. ===== 신간 확인 =====");
+		System.out.println("\n 3. ===== 신간 확인 =====");
 		kyobo.getAllBooks();
 		
 		// 4. 채식주의자 가격할인:set
-		System.out.println(" 4. ===== 채식주의자 정보 변경 =====");
+		System.out.println("\n 4. ===== 채식주의자 정보 변경 =====");
 		// (1) 가격할인된 채식주의자 책 정보를 새로 생성
 		Book vegetarian2 = 
-				buildBook(10, "9788936433598", "채식주의자"
+				buildBook(1, "9788936433598", "채식주의자"
 						  , "한강", "창비", 247, 10000, 7);
 		
 		// (2) 변경된 책 정보를 담은 책 객체를 넘겨서 수정처리
 		kyobo.set(vegetarian2);
 		
 		// 5. 채식주의 가격 할인 적용 결과 확인:ㅠ
-		System.out.println(" 5. ===== 채식주의자 변경 확인 =====");
+		System.out.println("\n 5. ===== 채식주의자 변경 확인 =====");
 		// (1) 해당 책의 시퀀스 번호만 알면 조회가능
 		//     시퀀스 번호만 들어있는 Book 객체를 생성
-		Book seqBook = buildBook(10);
+		Book seqBook = buildBook(1);
 		kyobo.get(seqBook);
 		
+		Book seqBook10 = buildBook(10);
+		kyobo.get(seqBook10);
+		
 		// 6. 책은 도끼다 폐기:remove
-		System.out.println(" 6. ===== 책은 도끼다 삭제 =====");
+		System.out.println("\n 6. ===== 책은 도끼다 삭제 =====");
 		// (1) 폐기할 책의 시퀀스 번호만 알면 폐기가능
 		//     시퀀스 번호만 들어있는 Book 객체를 생성
-		Book rmBook = buildBook(50);
+		Book rmBook = buildBook(5);
 		kyobo.remove(rmBook);
+		Book rmBook50 = buildBook(50);
+		kyobo.remove(rmBook50);
 		
 		// 7. 폐기 확인을 위해 전체 목록 재 조회:getAllBooks
-		System.out.println(" 7. ===== 책은 도끼다 삭제 후 전체 목록 확인 =====");
+		System.out.println("\n 7. ===== 책은 도끼다 삭제 후 전체 목록 확인 =====");
 		kyobo.getAllBooks();
 		
 		// 8. 제목 검색
+		System.out.println("\n 8. ===== 제목에 '어' 자가 들어가는 책 목록 확인 =====");
 		kyobo.getBooksByTitle("어");
 		
 		// 9. 가격 검색
+		System.out.println("\n 9. ===== 가격이 10000 ~ 11000 사이인 책 목록 확인 =====");
 		kyobo.getBooksByPrice(10000, 11000);
+		
+		// 반복 실행을 위하여 마지막에 모두 삭제
+		System.out.println("\n 10. ===== 1 ~ 4 번 책들 삭제 =====");
+		Book rmBook1 = buildBook(1);
+		kyobo.remove(rmBook1);
+		Book rmBook2 = buildBook(2);
+		kyobo.remove(rmBook2);
+		Book rmBook3 = buildBook(3);
+		kyobo.remove(rmBook3);
+		Book rmBook4 = buildBook(4);
+		kyobo.remove(rmBook4);
+		
 	}
 
 }
