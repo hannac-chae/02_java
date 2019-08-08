@@ -27,6 +27,9 @@ public class MemberInsert {
 			pstmt = conn.prepareStatement(sql);
 			
 			// ? 매핑
+			// Member 빈 객체 생성
+			// 수정자 메소드로 id, name 필드 입력
+			// 아래 구문의 값들에는 접근자 메소드로 추출하여 입력
 			pstmt.setString(1, "M010");
 			pstmt.setString(2, "홍길동");
 			

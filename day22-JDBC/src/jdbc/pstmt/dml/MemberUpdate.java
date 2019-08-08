@@ -34,6 +34,9 @@ public class MemberUpdate {
 			pstmt = conn.prepareStatement(sql);
 			
 			// ? 매핑
+			// Member 객체 생성 후 
+			// 수정자 메소드로 값들 세팅
+			// 접근자 메소드로 값 추출하여 매핑
 			pstmt.setString(1, "0000");
 			pstmt.setString(2, "도술");
 			pstmt.setInt(3, 12);

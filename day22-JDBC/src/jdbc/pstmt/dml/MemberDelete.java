@@ -30,7 +30,10 @@ public class MemberDelete {
 			pstmt = conn.prepareStatement(sql);
 			
 			// ? 매핑
-			pstmt.setString(1, "M010");
+			Member member = new Member();
+			member.setMemberId("M010");
+					
+			pstmt.setString(1, member.getMemberId());
 			
 			// 4. 쿼리 실행 : ? 가 사전에 모두 매핑된 
 			//    pstmt 객체를 통해서 쿼리 실행
