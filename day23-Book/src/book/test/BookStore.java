@@ -2,6 +2,7 @@ package book.test;
 
 import book.controller.BookManager;
 import book.vo.Book;
+import book.vo.Price;
 
 /**
  * 책을 판매하는 서점을 정의하는 클래스
@@ -69,6 +70,10 @@ public class BookStore {
 	
 	public void getBooksByPrice(int min, int max) {
 		manager.getBooksByPrice(min, max);
+	}
+	
+	public void getBooksByPrice(Price price) {
+		manager.getBooksByPrice(price);
 	}
 	
 }

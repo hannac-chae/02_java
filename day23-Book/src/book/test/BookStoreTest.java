@@ -1,15 +1,12 @@
 package book.test;
 
-import java.util.ArrayList;
-import java.util.List;
+import static book.factory.BookFactory.buildBook;
+import static book.factory.DaoFactory.getBookShelf;
 
 import book.controller.BookManager;
 import book.dao.BookShelf;
-import book.dao.ListBookShelf;
 import book.vo.Book;
-
-import static book.factory.BookFactory.buildBook;
-import static book.factory.DaoFactory.getBookShelf;
+import book.vo.Price;
 
 /**
  * 서점에서 할 수 있는 여러 기능들
@@ -126,8 +123,13 @@ public class BookStoreTest {
 		System.out.println("\n 9. ===== 가격이 10000 ~ 11000 사이인 책 목록 확인 =====");
 		kyobo.getBooksByPrice(10000, 11000);
 		
+		// 10. 가격 검색
+		System.out.println("\n 10. ===== 가격이 10000 ~ 11000 사이인 책 목록 확인 =====");
+		Price price = new Price(10000, 11000);
+		kyobo.getBooksByPrice(price);
+		
 		// 반복 실행을 위하여 마지막에 모두 삭제
-		System.out.println("\n 10. ===== 1 ~ 4 번 책들 삭제 =====");
+		System.out.println("\n 11. ===== 1 ~ 4 번 책들 삭제 =====");
 		Book rmBook1 = buildBook(1);
 		kyobo.remove(rmBook1);
 		Book rmBook2 = buildBook(2);

@@ -6,11 +6,9 @@ import book.dao.ArrayBookShelf;
 import book.dao.BookShelf;
 import book.exception.DuplicateException;
 import book.exception.NotFoundException;
-import book.view.ListResp;
-import book.view.MessageResp;
 import book.view.Response;
-import book.view.SingleResp;
 import book.vo.Book;
+import book.vo.Price;
 /**
  * 책장(BookShelf)을 사용하는 북매니저를 나타내는 클래스
  * -----------------------------------------------------
@@ -215,6 +213,13 @@ public class BookManager {
 		
 		if (response != null)
 			response.response(bookShelf.getBooksByPrice(min, max));
+	}
+	
+	public void getBooksByPrice(Price price) {
+		response = getResp("list");
+		
+		if (response != null)
+			response.response(bookShelf.getBooksByPrice(price));
 	}
 	
 }
