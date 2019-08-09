@@ -14,8 +14,10 @@ public class ListResp implements Response {
 	public void response(Object object) {
 
 		List<Book> books = (List<Book>) object;
-		for (Book book: books) {
-			System.out.println(book);
+		if (books != null) {
+			for (Book book: books) {
+				System.out.println(book);
+			}
 		}
 	}
 

@@ -497,8 +497,8 @@ public class JdbcBookShelf implements BookShelf {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			
 			// 3. 쿼리 준비
-			String sql = "SELECT b.sequence" 
-					   + "  FROM BOOK b" 
+			String sql = "SELECT b.sequence    " 
+					   + "  FROM BOOK b        " 
 					   + " WHERE b.sequence = ?";
 			
 			pstmt = conn.prepareStatement(sql);

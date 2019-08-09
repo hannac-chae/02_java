@@ -9,6 +9,7 @@ import book.dao.BookShelf;
 import book.dao.JdbcBookShelf;
 import book.dao.ListBookShelf;
 import book.dao.MapBookShelf;
+import book.dao.MybatisBookShelf;
 import book.dao.SetBookShelf;
 import book.vo.Book;
 
@@ -43,6 +44,9 @@ public class DaoFactory {
 		
 		} else if ("jdbc".equals(type)) {
 			bookShelf = new JdbcBookShelf();
+			
+		} else if ("mybatis".equals(type)) {
+			bookShelf = new MybatisBookShelf();
 			
 		} else {
 			bookShelf = new ArrayBookShelf(new Book[]{});

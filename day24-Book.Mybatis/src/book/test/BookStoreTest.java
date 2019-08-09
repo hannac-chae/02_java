@@ -35,7 +35,8 @@ public class BookStoreTest {
 //		BookShelf bookShelf = getBookShelf("map");
 //		BookShelf bookShelf = getBookShelf("set");
 //		BookShelf bookShelf = getBookShelf("array");
-		BookShelf bookShelf = getBookShelf("jdbc");
+//		BookShelf bookShelf = getBookShelf("jdbc");
+		BookShelf bookShelf = getBookShelf("mybatis");
 		
 		// 3. 배열로 구성된 책장을 관리할 매니저를 고용
 		BookManager manager = new BookManager(bookShelf);
