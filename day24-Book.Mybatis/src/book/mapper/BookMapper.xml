@@ -4,7 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- mybatis 에서 SQL 구문이 작성되는 문서 -->
-<mapper namespace="book.mapper">
+<!-- mapper 파일의 namespace 이름 규칙
+     : XxxMapper.xml 파일이 있는 위치를 . 연산자로 연결한
+       패키지명.매퍼파일명 을 조합 -->
+<mapper namespace="book.mapper.BookMapper">
     <select id="isExists" parameterType="Book" 
                           resultType="Book" >
         SELECT b.sequence    

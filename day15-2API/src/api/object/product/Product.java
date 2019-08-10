@@ -209,6 +209,15 @@ public class Product {
 		         , pcode, pname, price, quantity);
 		return strProduct;
 	}
+	
+//	@Override
+	public String toString(String option) {
+		String strProduct = String.format(
+				"제품 정보 [제품코드 : %s, 제품명 : %s"
+		                 + ", 가격 %,d: , 재고수량 : %d]"
+		         , pcode, pname, price, quantity);
+		return strProduct;
+	}
 
 	@Override
 	public int hashCode() {
