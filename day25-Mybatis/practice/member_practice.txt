@@ -6,7 +6,7 @@ Mybatis 적용한 쿼리 작업 작성
        mybatis.member.vo.Member 타입을 등록 
    
    (2) mapper 에
-       mybatis.member.mapper.MemberMapper.xml 등록
+       mybatis/member/mapper/MemberMapper.xml 등록
 
 2. mybatis.member 패키지 작성
    mybatis.member.mapper 
