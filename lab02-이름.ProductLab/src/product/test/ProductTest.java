@@ -1,5 +1,21 @@
 package product.test;
 
+/**
+ * 프로그램 테스트시 주의 점
+ * --------------------------------
+ * 1. 오류 나는 부분은 주석처리 해 가며 
+ *    구현된 곳 까지 실행해가며 테스트
+ * 2. 시퀀스(DB에 생성한)의 일련번호는 
+ *    계속해서 증가만 하므로
+ *    전체 테스트 진행 후 마지막 P005 삭제하고나면
+ *    P005 번은 신규 생성이 불가능함.
+ *    
+ *    신규 생성되는 PK 는 P006, P007, .. 의 순으로 증가하니
+ *    그 점 유의하여 업데이트 혹은 
+ *    PRODUCT 테이블과 SEQ_PRODUCT 시퀀스를 
+ *    드롭후 재생성 하는 방식으로
+ *    반복테스트 진행할 것
+ */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +27,7 @@ public class ProductTest {
 
 	public static void main(String[] args) {
 		
+		// 입력 테스트 ---------------------------------------------------------------
 		// 입력에 사용할 데이터 생성
 		Product p001 = new Product();
 		p001.setName("슈퍼스타");
@@ -53,18 +70,14 @@ public class ProductTest {
 			
 		}
 		
-//		-- 'P001', '슈퍼스타 (플립샌들)', 87200, 2
-//		-- 'P002', '리복 로얄 테크큐 티(L)', 42000, 20
-//		-- 'P003', 'NIKE 탄준 샌들', 41300, 3
-//		-- 'P004', '라이트라이드 샌들 (WOMAN)', 40200, 15
-//		-- 'P005', '지제 (WOMAN)', 29000, 3
-		
+
+		// 수정 테스트 객체 생성-------------------------------------------------------------------------------
 		// TODO : dao 객체에 selectProdudct(PrimaryKey) 를 호출하여 P001 코드 제품 검색;
 		//        selectProdudct() 메소드 파라미터로 넘기는 PrimaryKey 타입의 인스턴스 내부 멤버변수인 code 값에
 		//        P001 을 가지도록 생성하여 그 인스턴스를 넘기도록 함
 		Product p001Mod = // TODO 여기 코드 완성;
 		p001Mod.setName("슈퍼스타 (플립샌들)");
-		p001Mod.setPrice((int) p001Mod.getPrice() * 0.9);
+		p001Mod.setPrice((int) (p001Mod.getPrice() * 0.9));
 		p001Mod.setQuantity(2);
 		
 		// TODO : dao 객체에 selectProdudct(PrimaryKey) 를 호출하여 P002 코드 제품 검색;
@@ -72,7 +85,7 @@ public class ProductTest {
 		//        P002 을 가지도록 생성하여 그 인스턴스를 넘기도록 함
 		Product p002Mod = // TODO 여기 코드 완성;
 		p002Mod.setName("리복 로얄 테크큐 티(L)");
-		p002Mod.setPrice((int) p002Mod.getPrice() * 0.9);
+		p002Mod.setPrice((int) (p002Mod.getPrice() * 0.9));
 		p002Mod.setQuantity(20);
 		
 		// TODO : dao 객체에 selectProdudct(PrimaryKey) 를 호출하여 P003 코드 제품 검색;
@@ -80,7 +93,7 @@ public class ProductTest {
 		//        P003 을 가지도록 생성하여 그 인스턴스를 넘기도록 함		
 		Product p003Mod = // TODO 여기 코드 완성;
 		p003Mod.setName("NIKE 탄준 샌들");
-		p003Mod.setPrice((int) p003Mod.getPrice() * 0.9);
+		p003Mod.setPrice((int) (p003Mod.getPrice() * 0.9));
 		p003Mod.setQuantity(3);
 		
 		// TODO : dao 객체에 selectProdudct(PrimaryKey) 를 호출하여 P004 코드 제품 검색;
@@ -88,7 +101,7 @@ public class ProductTest {
 		//        P004 을 가지도록 생성하여 그 인스턴스를 넘기도록 함
 		Product p004Mod = // TODO 여기 코드 완성;
 		p004Mod.setName("라이트라이드 샌들 (WOMAN)");
-		p004Mod.setPrice((int) p004Mod.getPrice() * 0.9);
+		p004Mod.setPrice((int) (p004Mod.getPrice() * 0.9));
 		p004Mod.setQuantity(15);
 		
 		// TODO : dao 객체에 selectProdudct(PrimaryKey) 를 호출하여 P005 코드 제품 검색;
@@ -96,7 +109,7 @@ public class ProductTest {
 		//        P005 을 가지도록 생성하여 그 인스턴스를 넘기도록 함		
 		Product p005Mod = // TODO 여기 코드 완성;
 		p005Mod.setName("지제 (WOMAN)");
-		p005Mod.setPrice((int) p005Mod.getPrice() * 0.9);
+		p005Mod.setPrice((int) (p005Mod.getPrice() * 0.9));
 		p005Mod.setQuantity(3);
 		
 		// 수정 -----------------------------------------------------------------------
@@ -113,7 +126,7 @@ public class ProductTest {
 		}
 		
 		
-		// -----------------------------------------------------------------------
+		// 검색 테스트 -----------------------------------------------------------------------
 		// TODO : 검색어 "샌들" 로 제품목록 검색
 		List<Product> sandles = // TODO : dao 객체를 사용하여 제품명 유사 검색 완성;
 		for (Product product: sandles) {
@@ -140,30 +153,31 @@ public class ProductTest {
 		}
 		
 		// TODO : 가장 비싼 제품목록 검색
-		List<Product> mostExpensive = // TODO : dao 객체를 사용하여 가장 비싼 검색 완성;
-		for (Product product: mostExpensive) {
+		List<Product> mostExpensives = // TODO : dao 객체를 사용하여 가장 비싼 검색 완성;
+		for (Product product: mostExpensives) {
 			System.out.println(product);			
 		}
 		
 		// TODO : 가장 재고 많은 제품목록 검색
-		List<Product> mostQuantities = // TODO : dao 객체를 사용하여 가장 재고 많은 검색 완성
+		List<Product> mostQuantities = // TODO : dao 객체를 사용하여 가장 재고 많은 검색 완성;
 		for (Product product: mostQuantities) {
 			System.out.println(product);			
 		}
 		
 		
-		// -----------------------------------------------------------------------
+		// 삭제 테스트 -----------------------------------------------------------------------
 		// TODO : PrimaryKey 타입의 인스턴스 내부 멤버변수인 code 값에
 		//        P005 을 가지도록 생성
 		
-		// TODO : dao 에 deleteProduct(PriamryKey pk) 메소드를 호출하며 위에서 생성한 PrimaryKey 인스턴스 전달
+		// TODO : dao 에 deleteProduct(PriamryKey pk) 메소드를 호출하며
+		//        위에서 생성한 PrimaryKey 인스턴스 전달
 		
 		
 		
 		
-		// -----------------------------------------------------------------------
+		// 삭제 -----------------------------------------------------------------------
 		// TODO : P005 가 삭제된 전체 목록 조회
-		List<Product> allProducts = // TODO : dao 객체를 사용하여 전체 목록 검색 완성
+		List<Product> allProducts = // TODO : dao 객체를 사용하여 전체 목록 검색 완성;
 		for (Product product: allProducts) {
 			System.out.println(product);			
 		}

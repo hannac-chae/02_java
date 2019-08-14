@@ -1,15 +1,18 @@
 package product.dao;
 
+import mybatis.emp.vo.Emp;
+
 public class ProductDao {
 	
 	// (1) 멤버변수 SqlSessionFactory factory 선언
+	
 	   
 	// (2) 생성자 
 	//     factory 변수를 MybatisClient 를 사용하여 초기화 진행
 	     
 	// (3) 메소드
 	//    1)  selectProducts() : List<Product>
-	//      조회 쿼리 아이디 : selectAllProducts
+	//      조회 쿼리 아이디 : selectAllProducts	
 	        
 	//    2)  selectProduct(PrimaryKey pk) : Product
 	//    	조회 쿼리 아이디 : selectProduct
@@ -17,7 +20,7 @@ public class ProductDao {
 	//    3)  insertProduct(Product product) : int
 	//    	조회 쿼리 아이디 : insertProduct
 	    	 
-	//    4)  updateProduct(PrimaryKey pk, Product product) : int
+	//    4)  updateProduct(Product product) : int
 	//    	조회 쿼리 아이디 : updateProduct
 	    	
 	//    5)  deleteProduct(PrimaryKey pk) : int

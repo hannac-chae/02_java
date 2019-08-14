@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+/<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -23,7 +23,7 @@
 	<!--     수정 대상 컬럼 : name, price, quantity, mod_date -->
 	<!--     수정일은 현재 시스템 시간으로 업데이트 -->
 	<!--     가격을 10% 하락 가격으로 업데이트 하는 것 아님, 그냥 변수처리 하십시오. -->
-	<!--     id="updateProduct" parameterType="PrimaryKey" -->
+	<!--     id="updateProduct" parameterType="Product" -->
 
 	     
 	<!-- (5) 1개의 제품 정보 삭제하는 DELETE 쿼리 작성, -->
@@ -33,7 +33,7 @@
 	     
 	<!-- (6) 제품명(name)에 특정 검색어가 들어가는 제품목록  -->
 	<!--     전체 컬럼 조회쿼리 작성 -->
-	<!--     id="selectByName" parameterType="string" -->
+	<!--     id="selectByName" parameterType="string" resultType="Product" -->
 
 	<!-- 7 ~ 9 번 작성시 주의점. -->
 	<!-- xml 문서에는 SQL 비교 연산자인 <, >, <=, >= 기호를  -->
