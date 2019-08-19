@@ -1,11 +1,12 @@
 package mybatis.emp.test;
 
+import java.math.BigDecimal;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import mybatis.emp.MybatisClient;
-import mybatis.emp.mapper.EmpMapper;
-import mybatis.emp.vo.Emp;
 
 /**
  * EMP 테이블에서 직원 정보 1건을 수정하는
@@ -21,7 +22,7 @@ import mybatis.emp.vo.Emp;
  * @author 304
  *
  */
-public class MybatisEmpUpdateTest3 {
+public class MybatisEmpUpdateTest {
 
 	public static void main(String[] args) {
 		// 1. 팩토리 얻기
@@ -31,36 +32,39 @@ public class MybatisEmpUpdateTest3 {
 		SqlSession session = factory.openSession(true);
 		
 		try {
-			// 수정에 사용할 객체 선언
-			Emp inputEmp = new Emp();
-			inputEmp.setEmpno(9999);
-			inputEmp.setMgr(7698);
-			inputEmp.setComm(500);
+			// 3. 세션에서 쿼리 실행
+			// (1) 직원 1명 정보 조회
+			//     mybatis.emp.mapper.EmpMapper.selectEmp
+			Map<String, Object> emp =
+					session.selectOne("mybatis.emp.mapper.EmpMapper.selectEmp", 1111);
 			
-			// 3. 세션에서 매퍼 인터페이스 객체 얻어서 메소드 호출
-			// (1) 매퍼 인터페이스 변수 선언
-			EmpMapper mapper;
-			// (2) 인터페이스 변수에 매퍼 객체 얻기
-			mapper = session.getMapper(EmpMapper.class);
+			// 맵 객체인 emp 에 담긴 내용
+			// 1111	박준석	SALESMAN		19/08/10
+			System.out.println(emp);
 			
-			// (4) 조회된 직원 정보 일부 수정메소드 호출
-			//     update3(Emp) 메소드는 정적 update 수행 메소드
-//			int setCnt = mapper.update3(inputEmp);
+			// 수정할 컬럼=값
+			// mgr=7698, sal=1250, comm=400, deptno=30
+			emp.put("MGR", Integer.valueOf(7698)); // auto-boxing
+			emp.put("SAL", 1250);
+			emp.put("COMM", 800);
+			emp.put("DEPTNO", 30);
 			
-			//     update2(Emp) 메소드는 동적 update 수행 메소드
-			int setCnt = mapper.update2(inputEmp);
+			// (2) 조회된 직원 정보 일부 수정
+			//     mybatis.emp.mapper.EmpMapper.update
+			int setCnt = 
+					session.update("mybatis.emp.mapper.EmpMapper.update"
+							      , emp);
 			
-			if (setCnt > 0) {				
+			if (setCnt > 0) {
+				BigDecimal empno = (BigDecimal) emp.get("EMPNO");
+				
 				System.out.printf("%d 직원의 정보가 %d건 수정되었습니다.%n"
-						         , inputEmp.getEmpno() , setCnt);
+						         , empno.intValue() , setCnt);
 			}
 			
-			// (5) 수정된 정보 재 조회
-			Emp selectEmp = new Emp();
-			selectEmp.setEmpno(9999);
-			
-			// 매퍼에 selectEmp2(emp) 호출
-			Emp newEmp = mapper.selectEmp2(selectEmp);
+			// (3) 조회된 정보 재 조회
+			Map<String, Object> newEmp =
+					session.selectOne("mybatis.emp.mapper.EmpMapper.selectEmp", 1111);
 			
 			System.out.println("수정된 정보");
 			System.out.println(newEmp);
