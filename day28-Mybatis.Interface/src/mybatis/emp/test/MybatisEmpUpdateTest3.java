@@ -34,8 +34,8 @@ public class MybatisEmpUpdateTest3 {
 			// 수정에 사용할 객체 선언
 			Emp inputEmp = new Emp();
 			inputEmp.setEmpno(9999);
-			inputEmp.setMgr(7698);
-			inputEmp.setComm(500);
+//			inputEmp.setMgr(7698);
+			inputEmp.setSal(2500);
 			
 			// 3. 세션에서 매퍼 인터페이스 객체 얻어서 메소드 호출
 			// (1) 매퍼 인터페이스 변수 선언
