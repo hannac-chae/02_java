@@ -7,7 +7,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/ojdbc8.jar"/>
+<<<<<<< Updated upstream
 	<classpathentry kind="lib" path="lib/mybatis-3.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.17.jar"/>
+=======
+>>>>>>> Stashed changes
 	<classpathentry kind="output" path="bin"/>
 </classpath>
